@@ -1,0 +1,33 @@
+<h1>Dragon's Home</h1>
+
+<form action="/dragons/create" method="POST" enctype="multipart/form-data">
+  <label for="nameInput"> Name </label>
+  <input id="nameInput" type="text" name="name" placeholder="Draco">
+
+  <label for="locationInput"> Location </label>
+  <input id="locationInput" type="text" name="location" placeholder="Winterfell">
+
+  <label for="kewlFactorInput"> Kewl Factor</label>
+  <input id="kewlFactorInput" type="number" name="kewlFactor" placeholder="5">
+
+  <label for="imageInput"> Choose Your Image File</label>
+  <input id="imageInput" type="file" name="image">
+
+<button>Save New Dragon</button>
+</form>
+
+
+{{!-- enctype="multipart/form-data" enables us to send files from our PC. Renders a "choose new file" button.  --}}
+
+{{!-- For IMAGE: must make type = "file" --}}
+
+<hr>
+
+{{#each dragons}}
+<div>
+  <h3>{{this.name}}</h3>
+  <img src="{{this.image}}" alt="dragon">
+  <h4>{{this.location}}</h4>
+  <h4>Kewl Factor: {{this.kewlFactor}}</h4>
+</div>
+{{/each}}
